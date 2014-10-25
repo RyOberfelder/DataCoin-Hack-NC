@@ -1,17 +1,17 @@
-var DataCoin = function (dataName, oldData, newData) {
-    this.dataName = dataName;
-    this.oldData = oldData;
-    this.newData = newData;
+var DataCoin = function () {
+    this.dataName = "Hello Data";
+    this.oldData = 0;
+    this.newData = 0;
 	this.dataArchive = [];
 }
 
-DataCoin.setDataName = function(changedDataName){
+DataCoin.prototype.setDataName = function(changedDataName){
 	this.dataName = changedDataName;
 }
-DataCoin.setOldData = function(changedOldData){
+DataCoin.prototype.setOldData = function(changedOldData){
 	this.oldData = changedOldData;
 }
-DataCoin.setNewData = function(changedNewData){
+DataCoin.prototype.setNewData = function(changedNewData){
 	this.newData = changedNewData;
 }
 DataCoin.addFormSection = function(locationReference){
@@ -21,7 +21,7 @@ DataCoin.addFormSection = function(locationReference){
 	locationReference.append(jQueryItem);
 	return jQueryItem;
 }
-DataCoin.addInputDataName = function(locationReference){
+DataCoin.prototype.addInputDataName = function(locationReference){
 	var inputDataName = "<input>"
 	var jQueryItem = $(inputDataName);
 	jQueryItem.attr('id', 'inputDataName');
@@ -30,10 +30,11 @@ DataCoin.addInputDataName = function(locationReference){
 	locationReference.append(jQueryItem);
 	jQueryItem.before("Add New Name Data Here: ");
 	jQueryItem.after( "<br>" );
-	this.dataName = jQueryItem.value;
+	this.setDataName(jQueryItem.val());
 	return jQueryItem;
 }
-DataCoin.addInputOldData = function(locationReference){
+DataCoin.prototype.addInputOldData = function(locationReference){
+	var theDataCoin = this;
 	var inputOldData = "<input>"
 	var jQueryItem = $(inputOldData);
 	jQueryItem.attr('id', 'inputOldData');
@@ -42,10 +43,13 @@ DataCoin.addInputOldData = function(locationReference){
 	locationReference.append(jQueryItem);
 	jQueryItem.before("Add Old Data Here: ");
 	jQueryItem.after( "<br>" );
-	this.oldData = jQueryItem.value;
+	theDataCoin.setOldData(jQueryItem.val());
+	jQueryItem.change( function() {
+		theDataCoin.setOldData(jQueryItem.val());
+	});
 	return jQueryItem;
 }
-DataCoin.addInputNewData = function(locationReference){
+DataCoin.prototype.addInputNewData = function(locationReference){
 	var inputNewData = "<input>"
 	var jQueryItem = $(inputNewData);
 	jQueryItem.attr('id', 'inputNewData');
@@ -54,37 +58,33 @@ DataCoin.addInputNewData = function(locationReference){
 	locationReference.append(jQueryItem);
 	jQueryItem.before("Add New Data Here: ");
 	jQueryItem.after( "<br>" );
-	this.newData = jQueryItem.value;
+	this.setNewData(jQueryItem.val());
 	return jQueryItem; 
 }
-DataCoin.addToArchive = function(newArchiveEntry){
+DataCoin.prototype.addToArchive = function(newArchiveEntry){
 	this.dataArchive.unshift(newArchiveEntry);
 }
-DataCoin.removeFromArchive = function(){
+DataCoin.prototype.removeFromArchive = function(){
 	this.dataArchive.shift();
 }
-DataCoin.resetArchive = function(){
+DataCoin.prototype.resetArchive = function(){
 	this.dataArchive = [];
 }
 function createDataCoin(){
 	var newDataCoin = new DataCoin();
 	return newDataCoin;
 }
-DataCoin.prototype.createDataCoinView = function(relativeLocation) {
+DataCoin.prototype.createDataCoinView = function(jQueryItem) {
 	var ourDataCoin = this;
-	var newDiv = "<div></div>";
-	var jQueryItem = $(newDiv);
 	var newData = "<p></p>";
 	var jQNewDataItem = $(newData);
 	var oldData = "<p></p>";
 	var jQOldDataItem = $(oldData);
 	var newName = "<p></p>";
 	var jQNewNameItem = $(newName);
-	relativeLocation.append(jQueryItem);
 	jQueryItem.append(jQNewDataItem);
 	jQueryItem.append(jQNewNameItem);
 	jQueryItem.append(jQOldDataItem);
-	jQueryItem.addClass( "data-coin" );
 	jQNewDataItem.addClass( "data-coin-info" );
 	jQNewNameItem.addClass( "data-coin-info" );
 	jQOldDataItem.addClass( "data-coin-info" );
@@ -92,17 +92,38 @@ DataCoin.prototype.createDataCoinView = function(relativeLocation) {
 	jQNewDataItem.append(ourDataCoin.newData);
 	jQOldDataItem.append(ourDataCoin.oldData);
 	return jQueryItem;
+
 }
 
 
 function dataCoinListener(){
-	var formSection = DataCoin.addFormSection($("#try"));
-	var ourDataName = DataCoin.addInputDataName(formSection);
-	var ourOldData = DataCoin.addInputOldData(formSection);
-	var ourNewData = DataCoin.addInputNewData(formSection);
-	var newDataCoin = new DataCoin( ourDataName.value,ourNewData.value,ourOldData.value);
-	newDataCoin.createDataCoinView($("#try"));
+	var formSection = DataCoin.addFormSection($("#theForm"));
+	var newDataCoin = new DataCoin();
+	var ourDataName = newDataCoin.addInputDataName(formSection);
+	var ourOldData = newDataCoin.addInputOldData(formSection);
+	var ourNewData = newDataCoin.addInputNewData(formSection);
+	var newDiv = "<div></div>";
+	var jQueryItem = $(newDiv);
+	jQueryItem.addClass( "data-coin" );
+	jQueryItem.attr('id', 'coinView');
+	$("#theContent").append(jQueryItem);
+	var theView = newDataCoin.createDataCoinView(jQueryItem);
 	
+	ourDataName.change( function () {
+		newDataCoin.setDataName(ourDataName.val());
+		theView.empty();
+		newDataCoin.createDataCoinView(jQueryItem);
+	});
+	ourOldData.change( function () {
+		newDataCoin.setOldData(ourOldData.val());
+		theView.empty();
+		newDataCoin.createDataCoinView(jQueryItem);
+	});
+	ourNewData.change( function () {
+		newDataCoin.setNewData(ourNewData.val());
+		theView.empty();
+		newDataCoin.createDataCoinView(jQueryItem);
+	});
 }
 
 window.onload =  function() {
