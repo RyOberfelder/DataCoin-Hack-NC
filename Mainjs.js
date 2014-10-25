@@ -1,7 +1,7 @@
 var DataCoin = function (dataName, oldData, newData) {
-    this.setDataName(dataName);
-    this.setOldData(oldData);
-    this.set(newData);
+    this.dataName = dataName;
+    this.oldData = oldData;
+    this.newData = newData;
 	this.dataArchive = [];
 }
 
@@ -70,16 +70,16 @@ function createDataCoin(){
 	var newDataCoin = new DataCoin();
 	return newDataCoin;
 }
-DataCoin.createDataCoinView = function (relativeLocation) {
+DataCoin.prototype.createDataCoinView = function(relativeLocation) {
 	var ourDataCoin = this;
 	var newDiv = "<div></div>";
 	var jQueryItem = $(newDiv);
 	var newData = "<p></p>";
-	var jQNewDataItem = $(newDiv);
+	var jQNewDataItem = $(newData);
 	var oldData = "<p></p>";
-	var jQOldDataItem = $(newDiv);
+	var jQOldDataItem = $(oldData);
 	var newName = "<p></p>";
-	var jQNewNameItem = $(newDiv);
+	var jQNewNameItem = $(newName);
 	relativeLocation.append(jQueryItem);
 	jQueryItem.append(jQNewDataItem);
 	jQueryItem.append(jQNewNameItem);
@@ -88,9 +88,9 @@ DataCoin.createDataCoinView = function (relativeLocation) {
 	jQNewDataItem.addClass( "data-coin-info" );
 	jQNewNameItem.addClass( "data-coin-info" );
 	jQOldDataItem.addClass( "data-coin-info" );
-	jQNewNameItem.append(ourDataCoin.dataName);
-	jQNewDataItem.append(ourDataCoin.newData);
-	jQOldDataItem.append(ourDataCoin.oldData);
+	jQNewNameItem.append("jQNewNameItem");
+	jQNewDataItem.append("jQNewDataItem");
+	jQOldDataItem.append("jQOldDataItem");
 	return jQueryItem;
 }
 
