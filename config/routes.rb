@@ -7,4 +7,5 @@ Rails.application.routes.draw do
 
   root 'static_pages#index'
   get 'about' => 'static_pages#about'
+  get 'welcome' => 'static_pages#welcome'
 end
