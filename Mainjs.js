@@ -88,9 +88,9 @@ DataCoin.prototype.createDataCoinView = function(relativeLocation) {
 	jQNewDataItem.addClass( "data-coin-info" );
 	jQNewNameItem.addClass( "data-coin-info" );
 	jQOldDataItem.addClass( "data-coin-info" );
-	jQNewNameItem.append("jQNewNameItem");
-	jQNewDataItem.append("jQNewDataItem");
-	jQOldDataItem.append("jQOldDataItem");
+	jQNewNameItem.append(ourDataCoin.dataName);
+	jQNewDataItem.append(ourDataCoin.newData);
+	jQOldDataItem.append(ourDataCoin.oldData);
 	return jQueryItem;
 }
 
@@ -105,8 +105,8 @@ function dataCoinListener(){
 	
 }
 
-$(document).ready( function () {
+window.onload =  function() {
 	$("#addDataCoin").click( function() {
 		dataCoinListener();
 	});
-});
+}
