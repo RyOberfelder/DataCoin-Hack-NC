@@ -113,6 +113,8 @@ DataCoin.prototype.createDataCoinView = function(jQueryItem) {
 
 
 function dataCoinListener(){
+  $("#theForm").empty();
+  $("#theContent").empty();
 	var formSection = DataCoin.addFormSection($("#theForm"));
 	var newDataCoin = new DataCoin();
 	var ourDataName = newDataCoin.addInputDataName(formSection);
@@ -144,6 +146,7 @@ function dataCoinListener(){
 
 window.onload =  function() {
 	$("#addDataCoin").click( function() {
+    $("#addDataCoin").addClass("hidden");
 		dataCoinListener();
 	});
 }
