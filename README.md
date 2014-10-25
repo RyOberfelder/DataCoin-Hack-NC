@@ -1,2 +1,6 @@
-This is an application for HackNC.
-Ask Ryan if you want to know what it does.
+Must have Postgres installed and running.
+Run
+    rake db:migrate
+to correctly set the database up and
+    rails s
+to deploy locally.
