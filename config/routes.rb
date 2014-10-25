@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :stars
+
   resources :users
 
   resources :data_coins
