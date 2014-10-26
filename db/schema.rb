@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141025231926) do
+ActiveRecord::Schema.define(version: 20141026011537) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -26,10 +26,10 @@ ActiveRecord::Schema.define(version: 20141025231926) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "user_id"
-    t.integer  "data_coins_id"
+    t.integer  "data_coin_id"
   end
 
-  add_index "stars", ["data_coins_id"], name: "index_stars_on_data_coins_id", using: :btree
+  add_index "stars", ["data_coin_id"], name: "index_stars_on_data_coin_id", using: :btree
   add_index "stars", ["user_id"], name: "index_stars_on_user_id", using: :btree
 
   create_table "users", force: true do |t|
