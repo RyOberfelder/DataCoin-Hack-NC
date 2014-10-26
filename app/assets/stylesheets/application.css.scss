@@ -16,17 +16,16 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 .data-coin{
-Background-color: red;
+background-color: red;
 display: block;
 width: auto;
 height: auto;
+  p {
+    color: white;
+  }
 }
 .hidden{
   display:none;
-}
-
-.data-coin  p{
-color: white;
 }
  body {
         background: -webkit-linear-gradient(top, #009999 , white); /* For Safari 5.1 to 6.0 */
@@ -62,3 +61,4 @@ color: white;
         display: table;
         margin: 0 auto;
       }
+}

@@ -1,14 +1,14 @@
 Need to set up secret keys. First create a file config/secrets.yml with the following contents:
 
-```
+```ruby
 development:
-  secret\_key\_base:
+  secret_key_base:
 
 test:
-  secret\_key\_base:
+  secret_key_base:
 
 production:
-  secret\_key\_base: <%= ENV["SECRET_KEY_BASE"] %>
+  secret_key_base: <%= ENV["SECRET_KEY_BASE"] %>
 ```
 
 Make sure you generate new secret keys with
