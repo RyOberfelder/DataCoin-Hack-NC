@@ -1,3 +1,38 @@
 // Place all the styles related to the StaticPages controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+body {
+        background: -webkit-linear-gradient(top, #009999 , white); /* For Safari 5.1 to 6.0 */
+        background: -o-linear-gradient(bottom, #009999, white); /* For Opera 11.1 to 12.0 */
+        background: -moz-linear-gradient(bottom, #009999, white); /* For Firefox 3.6 to 15 */
+        background: linear-gradient(to bottom, #009999 , white); /* Standard syntax (must be last) */
+      }
+      div.col-md-4 {
+        border: 2px solid #a1a1a1;
+        padding: 15px 30px; 
+        background: white;
+        width: 300px;
+        height: 250px;
+        border-radius: 25px;
+        margin: 30px;
+      }
+      div.jumbotron {
+        border-radius: 25px;
+        margin: 80px 20px 20px 20px;
+      }
+      h1 {
+        text-align: center;
+      }
+      p {
+        text-align: center;
+      }
+      p.info {
+        text-align: left;
+        height: 100px;
+        overflow: hidden; 
+      }
+      div.row {
+        display: table;
+        margin: 0 auto;
+      }
+

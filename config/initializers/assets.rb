@@ -1,0 +1,6 @@
+Rails.application.config.assets.precompile += %w( data_coins.css )
+Rails.application.config.assets.precompile += %w( static_pages.css )
+Rails.application.config.assets.precompile += %w( comments.css )
+Rails.application.config.assets.precompile += %w( scaffolds.css )
+Rails.application.config.assets.precompile += %w( stars.css )
+Rails.application.config.assets.precompile += %w( users.css )
