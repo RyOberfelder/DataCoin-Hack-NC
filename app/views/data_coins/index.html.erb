@@ -1,15 +1,19 @@
 <h1>Listing data_coins</h1>
 
+<div class="row">
+  <div class="container">
+    <% @data_coins_first.each do |data_coin| %>
+    <div class="col-md-3">
+      <%= link_to(data_coin) do %>
+        <!-- Display stuff here>
+      <% end %>
+    </div>
+    <% end %>
+  </div>
+</div>
 <table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
   <tbody>
-    <% @data_coins.each do |data_coin| %>
+    <% @data_coins_last.each do |data_coin| %>
       <tr>
         <td><%= data_coin.name %></td>
         <td><%= link_to 'Show', data_coin %></td>
