@@ -4,7 +4,8 @@ class DataCoinsController < ApplicationController
   # GET /data_coins
   # GET /data_coins.json
   def index
-    @data_coins = DataCoin.all
+    @data_coins_first = DataCoin.all.limit(4)
+    @data_coins_rest = DataCoin.all.offset(4)
   end
 
   # GET /data_coins/1
