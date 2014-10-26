@@ -4,6 +4,42 @@
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 	<link href="mainCss.css" rel="stylesheet" type="text/css" />
 	<script src="Mainjs.js"></script>
+    <style>
+      body {
+        background: -webkit-linear-gradient(top, #009999 , white); /* For Safari 5.1 to 6.0 */
+        background: -o-linear-gradient(bottom, #009999, white); /* For Opera 11.1 to 12.0 */
+        background: -moz-linear-gradient(bottom, #009999, white); /* For Firefox 3.6 to 15 */
+        background: linear-gradient(to bottom, #009999 , white); /* Standard syntax (must be last) */
+      }
+      div.col-md-4 {
+        border: 2px solid #a1a1a1;
+        padding: 15px 30px; 
+        background: white;
+        width: 300px;
+        height: 250px;
+        border-radius: 25px;
+        margin: 30px;
+      }
+      div.jumbotron {
+        border-radius: 25px;
+        margin: 80px 20px 20px 20px;
+      }
+      h1 {
+        text-align: center;
+      }
+      p {
+        text-align: center;
+      }
+      p.info {
+        text-align: left;
+        height: 100px;
+        overflow: hidden; 
+      }
+      div.row {
+        display: table;
+        margin: 0 auto;
+      }
+    </style>
 	</head>
 	<body>
 <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
@@ -15,7 +51,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">Project name</a>
+          <a class="navbar-brand" href="#">Data Coin</a>
         </div>
         <div class="navbar-collapse collapse">
           <form class="navbar-form navbar-right" role="form">
@@ -34,9 +70,9 @@
     <!-- Main jumbotron for a primary marketing message or call to action -->
     <div class="jumbotron">
       <div class="container">
-        <h1>Hello, world!</h1>
-        <p>This is a template for a simple marketing or informational website. It includes a large callout called a jumbotron and three supporting pieces of content. Use it as a starting point to create something more unique.</p>
-        <p><a class="btn btn-primary btn-lg" role="button">Learn more &raquo;</a></p>
+        <h1>Welcome Header!</h1>
+        <p>Ryan, write some intro for your site here.</p>
+        <p><a class="btn btn-primary btn-lg" role="button">Explore Data Coins &raquo;</a></p>
       </div>
     </div>
 
@@ -44,18 +80,34 @@
       <!-- Example row of columns -->
       <div class="row">
         <div class="col-md-4">
-          <h2>Heading</h2>
-          <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+          <h2>What goes here?</h2>
+          <p class="info">Info about what is going to go here.</p
           <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
         </div>
         <div class="col-md-4">
-          <h2>Heading</h2>
-          <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+          <h2>Is this for you?</h2>
+          <p class="info">Find out more about this site and how it may be useful to you.</p>
           <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
        </div>
         <div class="col-md-4">
           <h2>Heading</h2>
-          <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
+          <p class="info">Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
+          <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+        </div>
+        <div class="row">
+        <div class="col-md-4">
+          <h2>Heading</h2>
+          <p class="info">Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+          <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+        </div>
+        <div class="col-md-4">
+          <h2>Heading</h2>
+          <p class="info">Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+          <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+       </div>
+        <div class="col-md-4">
+          <h2>Heading</h2>
+          <p class="info">Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
           <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
         </div>
       </div>
