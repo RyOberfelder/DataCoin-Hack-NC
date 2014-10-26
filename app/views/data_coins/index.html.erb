@@ -1,11 +1,19 @@
-<h1>Listing data_coins</h1>
+<div class="jumbotron">
+      <div class="container">
+        <h1>All Data Coins</h1>
+      </div>
+    </div>
 
 <div class="row">
   <div class="container">
     <% @data_coins_first.each do |data_coin| %>
     <div class="col-md-3">
       <%= link_to(data_coin) do %>
-        <!-- Display stuff here>
+      <div class="col-md-4">
+        <h2><%= data_coin.name %></h2>
+          <p class="info"></p>
+      </div>
+        <!-- Display stuff here-->
       <% end %>
     </div>
     <% end %>
@@ -13,7 +21,7 @@
 </div>
 <table>
   <tbody>
-    <% @data_coins_last.each do |data_coin| %>
+<% @data_coins_rest.each do |data_coin| %>
       <tr>
         <td><%= data_coin.name %></td>
         <td><%= link_to 'Show', data_coin %></td>
@@ -25,5 +33,3 @@
 </table>
 
 <br>
-
-<%= link_to 'New Data coin', new_data_coin_path %>
