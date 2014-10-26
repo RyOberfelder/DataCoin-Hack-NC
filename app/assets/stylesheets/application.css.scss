@@ -16,15 +16,14 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 .data-coin{
-Background-color: red;
+background-color: red;
 display: block;
 width: auto;
 height: auto;
+  p {
+    color: white;
+  }
 }
 .hidden{
   display:none;
-}
-
-.data-coin  p{
-color: white;
 }
