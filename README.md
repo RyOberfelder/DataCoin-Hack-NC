@@ -1,6 +1,6 @@
 Need to set up secret keys. First create a file config/secrets.yml with the following contents:
 
-```
+```ruby
 development:
   secret_key_base:
 
